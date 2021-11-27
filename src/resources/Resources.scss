@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'Win95';
+  src: url('./w95fa.woff') format('woff'),
+  url('./w95fa.woff2') format('woff2');
+};
+
+$primary: #E8BFEA;
+$highlight: #B68EE2;
+
+$winBorder: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+$winBorderReversed: inset -1px -1px #dfdfdf, inset 1px 1px grey, inset -2px -2px #fff, inset 2px 2px #0a0a0a;

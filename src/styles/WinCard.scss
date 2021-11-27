@@ -1,0 +1,65 @@
+@import '../resources/Resources.scss';
+
+.WinCard {
+  display: flex;
+  flex-direction: column;
+  box-shadow: $winBorder;
+  padding: 10px;
+  background-color: $primary;
+}
+
+
+.WinHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $highlight;
+  margin-bottom: 10px;
+  font-size: 20px;
+
+  padding: 5px 10px;
+}
+
+.WinHeaderButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.WinButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px;
+  font-weight: bold;
+  background-color: $primary;
+
+  min-height: 25px;
+  min-width: 25px;
+  box-shadow: $winBorder;
+  padding: 0px 5px;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:active {
+    box-shadow: $winBorderReversed;
+  }
+}
+
+.WinBody {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+
+  border-radius: 2px;
+  box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.7) inset;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.7) inset;
+  -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.7) inset;
+}
+
+.GameArea {
+  max-width: 60%;
+}

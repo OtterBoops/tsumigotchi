@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { Component } from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.scss'
+import Main from './components/Main'
+import Header from './components/Header'
+import Footer from './components/Footer'
+
+class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      egg: 0,
+      timer: 0
+    }
+  }
+
+  incrementEgg = () => {
+    this.setState({
+      egg: this.state.egg + 1
+    })
+    console.log(this.state.egg)
+  }
+
+  tick = () => {
+    this.setState({
+      timer: this.state.timer + 1
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+          <Header />
+          <Main />
+          <Footer increment={() => this.incrementEgg()} />
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App

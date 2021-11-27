@@ -1,0 +1,17 @@
+.Stats {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  .WinBody {
+    height: 100%;
+    justify-content: space-between;
+    padding: 15px;
+  }
+}
+
+.StatsLabels, .StatsValues{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}

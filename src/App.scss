@@ -1,0 +1,17 @@
+@import './resources/Resources.scss';
+
+* {
+  font-family: Win95;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  // border: 1px solid black;
+}
+
+html, body, .App, #root, .GameEngine {
+  height: 100%;
+  min-width: 1366px;
+  display: flex;
+  flex-direction: column;
+}
