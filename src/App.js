@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { secondsToHms } from './logic/Helpers'
 
 import './App.scss'
 import Main from './components/Main'
@@ -10,8 +11,27 @@ class App extends Component {
     super(props)
     this.state = {
       egg: 0,
-      timer: 0
+      timer: 0,
+      running: false,
     }
+  }
+
+
+
+  // update = () => {
+  //   while (this.state.running === true) {
+  //     this.setState(() => ({
+  //       timer: (this.state.timer + 1)
+  //     })
+  //   }
+  // }
+
+  update = () => {
+    this.interval = setInterval(() => {
+      this.setState({
+        timer: this.state.timer + 1
+      })
+    }, 1000);
   }
 
   incrementEgg = () => {
@@ -21,18 +41,27 @@ class App extends Component {
     console.log(this.state.egg)
   }
 
-  tick = () => {
+  start = () => {
+    this.update()
     this.setState({
-      timer: this.state.timer + 1
+      running: true,
+    })
+  }
+
+  stop = () => {
+    clearInterval(this.interval)
+    this.setState({
+      running: false,
+      timer: 0
     })
   }
 
   render() {
     return (
       <div className="App">
-          <Header />
-          <Main />
-          <Footer increment={() => this.incrementEgg()} />
+          <Header start={() => this.start()} stop={() => this.stop()} />
+          <Main time={this.state.timer} />
+          <Footer increment={() => this.incrementEgg()} time={`Survived ${secondsToHms(this.state.timer)}`} />
       </div>
     )
   }

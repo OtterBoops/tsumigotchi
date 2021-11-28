@@ -16,7 +16,7 @@ class Footer extends Component {
 
         </div>
         <div className="WinClockArea">
-          04:20 weedxD
+          {this.props.time}
         </div>
       </footer>
     )
