@@ -1,5 +1,3 @@
-import { useRef, useEffect } from 'react'
-
 export function secondsToHms(d) {
   d = Number(d);
   var h = Math.floor(d / 3600);
@@ -12,15 +10,5 @@ export function secondsToHms(d) {
   if ( h===0 && m === 0 && s === 0)
     return "nothing. Game isn't running."
   else
-   return hDisplay + mDisplay + sDisplay;
-}
-    
-
-
-export function usePrevious(value) {
-  const ref = useRef();
-  useEffect(() => {
-    ref.current = value;
-  });
-  return ref.current;
+   return hDisplay + mDisplay + sDisplay + ".";
 }

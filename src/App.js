@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       egg: 0,
       timer: 0,
-      running: false,
+      running: null,
     }
   }
 
@@ -22,10 +22,10 @@ class App extends Component {
         timer: this.state.timer + 1,
       })
       
-    if (this.state.egg >= 20 )
+      if (this.state.egg >= 20 )
       window.location.href = "https://www.youtube.com/watch?v=dRvp78VB7Gw"
-
-    console.log(`Gameloop tick ${this.state.timer}`)
+      
+      console.log(`Gameloop tick ${this.state.timer}`)
     }, 1000)
   }
 
@@ -45,12 +45,12 @@ class App extends Component {
   }
 
   stop = () => {
-    clearInterval(this.interval)
     this.setState({
       running: false,
       timer: 0,
-      tick: 0,
+      egg: 0
     })
+    clearInterval(this.interval)
     console.log("Gameloop stopped")
   }
 
@@ -58,7 +58,7 @@ class App extends Component {
     return (
       <div className="App">
           <Header start={() => this.start()} stop={() => this.stop()} />
-          <Main time={this.state.timer} />
+          <Main time={this.state.timer} running={this.state.running} stop={() => this.stop()} />
           <Footer increment={() => this.incrementEgg()} time={`Survived ${secondsToHms(this.state.timer)}`} />
       </div>
     )

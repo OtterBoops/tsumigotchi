@@ -8,11 +8,49 @@ class Main extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      health: 100,
+      health: 5,
       fun: 100,
       energy: 100,
       battery: 100,
       otts: 3,
+    }
+  }
+
+  componentDidUpdate = (prevProps) => {
+    if(JSON.stringify(prevProps) !== JSON.stringify(this.props)) {
+      if(this.props.running === true && this.state.health > 0)
+      {
+        this.setState({
+          health: this.logic.damage(this.state.health)
+        })
+      } else {
+        this.logic.stop()
+      }
+    }
+  }
+
+  logic = {
+    damage: (health) => {
+      if (health > 0)
+        return health - 1 //Temporary damage ticker. Will think of a formula based on stats.
+      else {
+        return 0
+      }
+    },
+    
+    stop: () => {
+      this.props.stop()
+      this.logic.reset()
+    },
+
+    reset: () => {
+      this.setState({
+        health: 5,
+        fun: 100,
+        energy: 100,
+        battery: 100,
+        otts: 3,
+      })
     }
   }
 
