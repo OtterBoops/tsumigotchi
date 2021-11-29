@@ -12,3 +12,16 @@ export function secondsToHms(d) {
   else
    return hDisplay + mDisplay + sDisplay + ".";
 }
+
+export function randomBg() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+export function random100() {
+  return Math.floor(Math.random() * 80) + 10 + "%"
+}

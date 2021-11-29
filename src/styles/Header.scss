@@ -2,12 +2,27 @@ header{
   .WinBody {
     display: flex;
     flex-direction: column;
-  
+    justify-content: center;
+    align-items: center;
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      p {
+        margin-bottom: 3px;
+      }
+    }
   }
 
   .HeaderButtons {
+    margin-top: 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
+    .WinButton {
+      height: 30px;
+      width: 60px;
+    }
   }
 }
 

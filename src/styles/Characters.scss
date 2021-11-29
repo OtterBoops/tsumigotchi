@@ -1,0 +1,25 @@
+.GameArea {
+  width: 60%;
+  min-width: 500px;
+  min-height: 500px;
+  .WinBody {
+    width: 60%;
+    min-width: 500px;
+    min-height: 500px;
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.Otter {
+  height: 50px;
+  width: 50px;
+
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

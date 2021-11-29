@@ -30,18 +30,20 @@ class App extends Component {
   }
 
   incrementEgg = () => {
-    this.setState({
-      egg: this.state.egg + 1
-    })
-    console.log(this.state.egg)
+    if (this.state.running === true)
+      this.setState({
+        egg: this.state.egg + 1
+      })
   }
 
   start = () => {
-    this.tick()
-    this.setState({
-      running: true,
-    })
-    console.log("Gameloop started")
+    if(!this.state.running) {
+      this.tick()
+      this.setState({
+        running: true,
+      })
+      console.log("Gameloop started")
+    }
   }
 
   stop = () => {
@@ -58,8 +60,8 @@ class App extends Component {
     return (
       <div className="App">
           <Header start={() => this.start()} stop={() => this.stop()} />
-          <Main time={this.state.timer} running={this.state.running} stop={() => this.stop()} />
-          <Footer increment={() => this.incrementEgg()} time={`Survived ${secondsToHms(this.state.timer)}`} />
+          <Main running={this.state.running} time={this.state.timer} stop={() => this.stop()} />
+          <Footer running={this.state.running} increment={() => this.incrementEgg()} time={`Survived ${secondsToHms(this.state.timer)}`} />
       </div>
     )
   }

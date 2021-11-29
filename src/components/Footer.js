@@ -10,7 +10,7 @@ class Footer extends Component {
       <footer>
         <div className="WinStartButton WinButton" onClick={this.props.increment}>
           <img src={TsumiComf} alt="TsumiComf"/>
-          <p>Start</p>
+          <p>TsuMenu</p>
         </div>
         <div>
 

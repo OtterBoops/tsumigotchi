@@ -1,4 +1,6 @@
 import { Component } from 'react'
+
+import Otter from './Otter'
 import WinCard from './WinComponents/WinCard'
 import WinButton from './WinComponents/WinButton'
 import '../styles/Main.scss'
@@ -8,7 +10,7 @@ class Main extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      health: 5,
+      health: 100,
       fun: 100,
       energy: 100,
       battery: 100,
@@ -45,7 +47,7 @@ class Main extends Component {
 
     reset: () => {
       this.setState({
-        health: 5,
+        health: 100,
         fun: 100,
         energy: 100,
         battery: 100,
@@ -78,14 +80,30 @@ class Main extends Component {
     }
   }
 
+  // graphics = {
+  //   otts: () => {
+  //     let otts = []
+  //     for (let i = 0; i < this.state.otts; i++) {
+  //       console.log(randomBg())
+  //       otts.push (<Otter 
+  //         style={{backgroundColor: randomBg()}} 
+  //       />)
+  //     }
+  //     return otts
+  //   }
+  // }
+
   render () {
     return (
       <main>
         <WinCard header="This is the Tsumi" className="GameArea">
-          This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area This is the game area 
+          {Array(this.state.otts).fill(
+            <Otter/>
+          )}
+
         </WinCard>
         <aside>
-          <WinCard header="Stats" className="Stats">
+          <WinCard header="Tstats" className="Stats">
             <div className="StatsLabels">
               <p>Health: </p>
               <p>Fun: </p>
@@ -103,7 +121,7 @@ class Main extends Component {
             </div>
 
           </WinCard>
-          <WinCard header="Controls" className="Controls">
+          <WinCard header="Tsuntrols" className="Controls">
               <WinButton action={() => this.controls.blankie()}>Blankie</WinButton>
               <WinButton action={() => this.controls.shove()} >Shove Ott</WinButton>
               <WinButton action={() => this.controls.stream()}>Stream</WinButton>

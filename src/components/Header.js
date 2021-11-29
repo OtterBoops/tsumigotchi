@@ -9,9 +9,21 @@ class Header extends Component {
   render() {
     return (
       <header className="Header">
-        <WinCard header="Tsumigochi">
+        <WinCard header="Tsumigotchi">
           <div>
-            A random roguelike tamagochi game with zero progression, blankets and bullying.
+            <p>
+            A random roguelike tamagochi game with zero progression, blankets and bullying. 
+            </p>
+            <p>
+              Shove otters away to slow down point drain.
+            </p>
+            <p>
+              Take care of your needs to heal up.
+            </p>
+            <p>
+              Get bullied and lose the game.
+            </p>
+            <p>Ready? Press start. Want to restart? Press stop.</p>
           </div>
 
           <div className="HeaderButtons">
