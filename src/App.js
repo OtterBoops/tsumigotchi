@@ -16,22 +16,17 @@ class App extends Component {
     }
   }
 
-
-
-  // update = () => {
-  //   while (this.state.running === true) {
-  //     this.setState(() => ({
-  //       timer: (this.state.timer + 1)
-  //     })
-  //   }
-  // }
-
-  update = () => {
+  tick = () => {
     this.interval = setInterval(() => {
       this.setState({
-        timer: this.state.timer + 1
+        timer: this.state.timer + 1,
       })
-    }, 1000);
+      
+    if (this.state.egg >= 20 )
+      window.location.href = "https://www.youtube.com/watch?v=dRvp78VB7Gw"
+
+    console.log(`Gameloop tick ${this.state.timer}`)
+    }, 1000)
   }
 
   incrementEgg = () => {
@@ -42,18 +37,21 @@ class App extends Component {
   }
 
   start = () => {
-    this.update()
+    this.tick()
     this.setState({
       running: true,
     })
+    console.log("Gameloop started")
   }
 
   stop = () => {
     clearInterval(this.interval)
     this.setState({
       running: false,
-      timer: 0
+      timer: 0,
+      tick: 0,
     })
+    console.log("Gameloop stopped")
   }
 
   render() {
