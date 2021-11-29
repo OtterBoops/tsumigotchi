@@ -15,7 +15,7 @@ class Header extends Component {
             A random roguelike tamagochi game with zero progression, blankets and bullying. 
             </p>
             <p>
-              Shove otters away to slow down point drain.
+              Shove otters away to stop them from bullying you (and slow down point drain).
             </p>
             <p>
               Take care of your needs to heal up.

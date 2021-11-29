@@ -23,3 +23,26 @@
   align-items: center;
   justify-content: center;
 }
+
+.Tsumi {
+  height: 150px;
+  width: 150px;
+  background-color: violet;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Hack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+}
+
+
+.Behind {
+  z-index: -9999;
+}

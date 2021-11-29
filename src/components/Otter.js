@@ -3,9 +3,9 @@ import { random100, randomBg } from '../logic/Helpers'
 import '../styles/Characters.scss'
 
 
-function Otter() {
+function Otter(props) {
     return(
-      <div className="Otter" style={{
+      <div className={props.className} style={{
           backgroundColor: randomBg(),
           top: random100(),
           left: random100()

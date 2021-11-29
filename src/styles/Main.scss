@@ -1,3 +1,5 @@
+@import '../resources/Resources.scss';
+
 main {
   display: flex;
   align-items: center;
@@ -15,5 +17,5 @@ aside {
   justify-content: space-evenly;
   align-items: center;
 
-  height: 90%
+  height: 90%;
 }

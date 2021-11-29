@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       egg: 0,
       timer: 0,
-      running: null,
+      running: false,
     }
   }
 

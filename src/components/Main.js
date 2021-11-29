@@ -1,6 +1,7 @@
 import { Component } from 'react'
 
 import Otter from './Otter'
+import Tsumi from './Tsumi'
 import WinCard from './WinComponents/WinCard'
 import WinButton from './WinComponents/WinButton'
 import '../styles/Main.scss'
@@ -14,7 +15,7 @@ class Main extends Component {
       fun: 100,
       energy: 100,
       battery: 100,
-      otts: 3,
+      otts: 5,
     }
   }
 
@@ -39,7 +40,7 @@ class Main extends Component {
         return 0
       }
     },
-    
+
     stop: () => {
       this.props.stop()
       this.logic.reset()
@@ -51,7 +52,7 @@ class Main extends Component {
         fun: 100,
         energy: 100,
         battery: 100,
-        otts: 3,
+        otts: 5,
       })
     }
   }
@@ -80,25 +81,15 @@ class Main extends Component {
     }
   }
 
-  // graphics = {
-  //   otts: () => {
-  //     let otts = []
-  //     for (let i = 0; i < this.state.otts; i++) {
-  //       console.log(randomBg())
-  //       otts.push (<Otter 
-  //         style={{backgroundColor: randomBg()}} 
-  //       />)
-  //     }
-  //     return otts
-  //   }
-  // }
-
   render () {
     return (
       <main>
         <WinCard header="This is the Tsumi" className="GameArea">
+          <div className="Hack">
+            <Tsumi className={`Tsumi ${this.props.running ? "" : "Behind"}`}/>
+          </div>
           {Array(this.state.otts).fill(
-            <Otter/>
+            <Otter className={`Otter ${this.props.running ? "" : "Behind"}`}/>
           )}
 
         </WinCard>
