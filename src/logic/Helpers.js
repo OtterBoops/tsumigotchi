@@ -25,3 +25,20 @@ export function randomBg() {
 export function random100() {
   return Math.floor(Math.random() * 80) + 10 + "%"
 }
+
+export function average(arr) {
+  return arr.reduce((a, b) => a + b, 0) / arr.length
+}
+
+export function randomIncrement() {
+  return Math.floor(Math.random() * (3 - 1 + 1)) + 1
+}
+
+export function randomDecrement() {
+  return Math.floor(Math.random() * (1 - -2 + 1)) + -2
+}
+
+export function oneInX(x) {
+  console.log(Math.floor(Math.random() * (x - 1 + 1)) + 1)
+  return Math.floor(Math.random() * (x - 1 + 1)) + 1
+}
