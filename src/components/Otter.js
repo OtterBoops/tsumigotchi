@@ -1,16 +1,15 @@
-import { random100, randomBg } from '../logic/Helpers'
-
+import { random100 } from '../logic/Helpers'
 import '../styles/Characters.scss'
-
+import OtterO from '../resources/images/OtterMain/OtterDegenO.png'
+import OtterC from '../resources/images/OtterMain/OtterDegenC.png'
 
 function Otter(props) {
     return(
       <div className={props.className} style={{
-          backgroundColor: randomBg(),
           top: random100(),
           left: random100()
         }}>
-          Otter
+          {props.time % 2 === 0 ? <img src={OtterC} alt="Otter Closed Mouth" /> : <img src={OtterO} alt="Otter Open Mouth" /> }
       </div>
     )
   }

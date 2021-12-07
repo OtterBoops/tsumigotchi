@@ -22,16 +22,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  img {
+    width: 75px;
+  }
 }
 
 .Tsumi {
   height: 150px;
   width: 150px;
-  background-color: violet;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  img {
+    height: 150px;
+  }
 }
 
 .Hack {

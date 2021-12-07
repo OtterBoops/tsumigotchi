@@ -12,7 +12,7 @@ class Main extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      health: 5,
+      health: 100,
       fun: 100,
       energy: 100,
       battery: 100,
@@ -25,9 +25,9 @@ class Main extends Component {
       if(this.props.running === true && this.state.health > 0) { // This is a death check bro, what the fuck? I forgot I put this here.
         this.logic.needs(0.25)
         this.logic.moreOtt(oneInX(2))
-        this.setState({
-          health: this.logic.damage(this.state.health)
-        })
+        // this.setState({
+        //   health: this.logic.damage(this.state.health)
+        // })
       } else {
         this.logic.stop() // This resets the game. 
       }
@@ -106,10 +106,10 @@ class Main extends Component {
       <main>
         <WinCard header="This is the Tsumi" className="GameArea">
           <div className="Hack">
-            <Tsumi className={`Tsumi ${this.props.running ? "" : "Behind"}`}/>
+            <Tsumi time={this.props.time} className={`Tsumi ${this.props.running ? "" : "Behind"}`}/>
           </div>
           {Array(this.state.otts).fill(
-            <Otter className={`Otter ${this.props.running ? "" : "Behind"}`}/>
+            <Otter time={this.props.time} className={`Otter ${this.props.running ? "" : "Behind"}`}/>
           )}
 
         </WinCard>
@@ -121,7 +121,7 @@ class Main extends Component {
               <p>Fun: </p>
               <p>Sleep: </p>
               <p>Oats: </p>
-              <p>Damage/Tick: </p>
+              <p>Avg of needs: </p>
             </div>
 
             <div className="StatsValues">
