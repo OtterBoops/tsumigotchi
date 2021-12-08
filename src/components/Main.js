@@ -25,9 +25,7 @@ class Main extends Component {
       if(this.props.running === true && this.state.health > 0) { // This is a death check bro, what the fuck? I forgot I put this here.
         this.logic.needs(0.25)
         this.logic.moreOtt(oneInX(2))
-        // this.setState({
-        //   health: this.logic.damage(this.state.health)
-        // })
+        this.logic.damage(16)
       } else {
         this.logic.stop() // This resets the game. 
       }
@@ -35,8 +33,10 @@ class Main extends Component {
   }
 
   logic = {
-    damage: (health) => {
-      return Math.max(0, health - 1) // Temporary damage dealing
+    damage: (scale) => {
+      this.setState ({
+        health: Math.min(100, this.state.health + Math.floor((this.state.fun + this.state.energy + this.state.battery) / 15 - scale))
+      }) 
     },
 
     needs: (multiplier) => {
