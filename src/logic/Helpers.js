@@ -39,6 +39,5 @@ export function randomDecrement() {
 }
 
 export function oneInX(x) {
-  console.log(Math.floor(Math.random() * (x - 1 + 1)) + 1)
   return Math.floor(Math.random() * (x - 1 + 1)) + 1
 }

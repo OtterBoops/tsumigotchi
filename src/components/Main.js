@@ -73,8 +73,8 @@ class Main extends Component {
     blankie: () => {
       this.setState({
         battery: this.state.battery + randomIncrement(),
-        fun: this.state.fun + randomDecrement(),
-        energy: this.state.energy + randomDecrement()
+        fun: Math.max(0, this.state.fun + randomDecrement()),
+        energy: Math.max(0, this.state.energy + randomDecrement())
       })
     },
 
@@ -87,16 +87,16 @@ class Main extends Component {
     stream: () => {
       this.setState({
         fun: this.state.fun + randomIncrement(),
-        battery: this.state.battery + randomDecrement(),
-        energy: this.state.energy + randomDecrement()
+        battery: Math.max(0, this.state.battery + randomDecrement()),
+        energy: Math.max(0, this.state.energy + randomDecrement())
       })
     },
 
     sleep: () => {
       this.setState({
         energy: this.state.energy + randomIncrement(),
-        battery: this.state.battery + randomDecrement(),
-        fun: this.state.fun + randomDecrement()
+        battery: Math.max(0, this.state.battery + randomDecrement()),
+        fun: Math.max(0, this.state.fun + randomDecrement())
       })
     }
   }
