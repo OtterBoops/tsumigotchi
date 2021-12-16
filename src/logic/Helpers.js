@@ -35,7 +35,7 @@ export function randomIncrement() {
 }
 
 export function randomDecrement() {
-  return Math.floor(Math.random() * (1 - -2 + 1)) + -2
+  return Math.floor(Math.random() * (2 - -2 + 1)) + -2
 }
 
 export function oneInX(x) {

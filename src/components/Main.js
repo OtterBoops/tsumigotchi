@@ -8,7 +8,7 @@ import WinButton from './WinComponents/WinButton'
 import '../styles/Main.scss'
 import '../styles/Stats.scss'
 
-class Main extends Component {
+export default class Main extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -25,7 +25,7 @@ class Main extends Component {
       if(this.props.running === true && this.state.health > 0) { // This is a death check bro, what the fuck? I forgot I put this here.
         this.logic.needs(0.25)
         this.logic.moreOtt(oneInX(2))
-        this.logic.damage(16)
+        this.logic.damage(16, -4)
       } else {
         this.logic.stop() // This resets the game. 
       }
@@ -33,10 +33,14 @@ class Main extends Component {
   }
 
   logic = {
-    damage: (scale) => {
+    damage: (scale, maxDamage) => {
       this.setState ({
-        health: Math.min(100, this.state.health + Math.floor((this.state.fun + this.state.energy + this.state.battery) / 15 - scale))
+        health: Math.min(100, this.state.health + this.logic.damageCalc(scale, maxDamage))
       }) 
+    },
+
+    damageCalc: (scale, maxDamage) => {
+      return Math.max(maxDamage, Math.floor((this.state.fun + this.state.energy + this.state.battery) / 15 - scale))
     },
 
     needs: (multiplier) => {
@@ -121,7 +125,7 @@ class Main extends Component {
               <p>Fun: </p>
               <p>Sleep: </p>
               <p>Oats: </p>
-              <p>Avg of needs: </p>
+              <p>Health/Tick: </p>
             </div>
 
             <div className="StatsValues">
@@ -130,7 +134,7 @@ class Main extends Component {
               <p>{this.state.fun}</p>
               <p>{this.state.energy}</p>
               <p>{this.state.otts}</p>
-              <p>{parseInt(average([this.state.battery, this.state.energy, this.state.fun]))}</p>
+              <p>{this.logic.damageCalc(16, -4)}</p>
             </div>
 
           </WinCard>
@@ -145,5 +149,3 @@ class Main extends Component {
     )
   }
 }
-
-export default Main

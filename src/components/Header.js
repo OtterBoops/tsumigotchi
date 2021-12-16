@@ -5,7 +5,7 @@ import WinCard from './WinComponents/WinCard'
 import '../styles/Header.scss'
 
 
-class Header extends Component {
+export default class Header extends Component {
   render() {
     return (
       <header className="Header">
@@ -23,7 +23,9 @@ class Header extends Component {
             <p>
               Get bullied and lose the game.
             </p>
-            <p>Ready? Press start. Want to restart? Press stop.</p>
+            <p>
+              Ready? Press start. Want to instantly lose? Press stop.
+            </p>
           </div>
 
           <div className="HeaderButtons">
@@ -35,5 +37,3 @@ class Header extends Component {
     )
   }
 }
-
-export default Header

@@ -1,6 +1,6 @@
 import { Component } from "react"
 
-class WinBody extends Component {
+export default class WinBody extends Component {
   render () {
     return (
       <div className={`WinBody`}>
@@ -9,5 +9,3 @@ class WinBody extends Component {
     )
   }
 }
-
-export default WinBody

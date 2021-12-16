@@ -1,6 +1,6 @@
 import { Component } from "react"
 
-class WinButton extends Component {
+export default class WinButton extends Component {
   render () {
     return (
       <div className="WinButton" onClick={this.props.action}>
@@ -9,5 +9,3 @@ class WinButton extends Component {
     )
   }
 }
-
-export default WinButton

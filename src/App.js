@@ -5,6 +5,7 @@ import './App.scss'
 import Main from './components/Main'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import GameOver from './components/GameOver'
 
 class App extends Component {
   constructor (props) {
@@ -13,6 +14,7 @@ class App extends Component {
       egg: 0,
       timer: 0,
       running: false,
+      gameover: false
     }
   }
 
@@ -41,6 +43,7 @@ class App extends Component {
       this.tick()
       this.setState({
         running: true,
+        gameover: false
       })
       console.log("Gameloop started")
     }
@@ -50,7 +53,8 @@ class App extends Component {
     this.setState({
       running: false,
       timer: 0,
-      egg: 0
+      egg: 0,
+      gameover: true
     })
     clearInterval(this.interval)
     console.log("Gameloop stopped")
@@ -59,6 +63,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+          {this.state.gameover === true && <GameOver />}
           <Header start={() => this.start()} stop={() => this.stop()} />
           <Main running={this.state.running} time={this.state.timer} stop={() => this.stop()} />
           <Footer running={this.state.running} increment={() => this.incrementEgg()} time={`Survived ${secondsToHms(this.state.timer)}`} />

@@ -2,7 +2,7 @@ import { Component } from "react"
 
 import WinButton from './WinButton'
 
-class WinHeader extends Component {
+export default class WinHeader extends Component {
   render() {
     return (
       <div className={`WinHeader`}>
@@ -11,11 +11,9 @@ class WinHeader extends Component {
         <div className="WinHeaderButtons">
           <WinButton><b>_</b></WinButton>
           <WinButton><b>◻</b></WinButton>
-          <WinButton>X</WinButton>
+          <WinButton action={this.props.action}>X</WinButton>
         </div>
       </div>
     )
   }
 }
-
-export default WinHeader
